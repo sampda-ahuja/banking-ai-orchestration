@@ -3,6 +3,60 @@
 > A production-style multi-agent AI orchestration system for banking loan inquiry workflows, built using [LangGraph](https://www.langchain.com/langgraph?utm_source=chatgpt.com), [LangChain](https://www.langchain.com/?utm_source=chatgpt.com), [Groq](https://groq.com/?utm_source=chatgpt.com), and [FastAPI](https://fastapi.tiangolo.com/?utm_source=chatgpt.com).
 
 ---
+# One Command Setup Flow
+````md
+
+### 1. Setup project (environment + dependencies)
+```bash
+uv sync
+````
+
+This will automatically:
+
+* Create the virtual environment (`.venv`)
+* Install all dependencies
+
+---
+
+### 2. Configure environment variables
+
+Create a `.env` file in the project root and add your Groq API key:
+
+```env
+GROQ_API_KEY=your_groq_api_key_here
+```
+
+---
+
+### 3. Run FastAPI application
+
+```bash
+uv run uvicorn app.main:app --reload
+```
+
+API will be available at:
+[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+---
+
+### 4. Run Promptfoo evaluations
+
+```bash
+npx promptfoo@latest eval \
+  --config evals/promptfooconfig.yaml \
+  --no-cache \
+  --max-concurrency 1
+```
+
+---
+
+### 5. View Promptfoo results
+
+```bash
+npx promptfoo@latest view
+```
+
+
 
 # Table of Contents
 

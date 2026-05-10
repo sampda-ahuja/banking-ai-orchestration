@@ -38,7 +38,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 VENV="$PROJECT_ROOT/.venv/bin/activate"
 if [ ! -f "$VENV" ]; then
   echo ""
-  echo "❌  Virtual environment not found at .venv/"
+  echo "  Virtual environment not found at .venv/"
   echo "    Run: python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt"
   exit 1
 fi
@@ -47,16 +47,16 @@ source "$VENV"
 # ── Check GROQ_API_KEY ────────────────────────────────────────────────────────
 if [ -z "$GROQ_API_KEY" ]; then
   echo ""
-  echo "❌  GROQ_API_KEY is not set — required for graph execution"
+  echo "  GROQ_API_KEY is not set — required for graph execution"
   echo "    Set it in .env or: export GROQ_API_KEY=gsk_..."
   exit 1
 fi
 echo ""
-echo "✅ GROQ_API_KEY found (${GROQ_API_KEY:0:8}...)"
+echo "GROQ_API_KEY found (${GROQ_API_KEY:0:8}...)"
 
 # ── Run Python evaluation ─────────────────────────────────────────────────────
 echo ""
-echo "🚀 Running evaluation suite..."
+echo " Running evaluation suite..."
 echo ""
 
 cd "$PROJECT_ROOT"
