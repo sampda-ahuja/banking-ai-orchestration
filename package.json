@@ -1,0 +1,13 @@
+{
+  "name": "banking-ai-orchestration",
+  "version": "1.0.0",
+  "description": "> Production-style multi-agent AI orchestration system for banking loan inquiry workflows, built with **LangGraph**, **LangChain**, **Groq**, and **FastAPI**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

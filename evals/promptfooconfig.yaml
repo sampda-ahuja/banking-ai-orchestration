@@ -1,0 +1,31 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# promptfooconfig.yaml
+# Banking AI Orchestration — Promptfoo Evaluation Config
+#
+# Tests are loaded from eval_dataset_v2.json (not hardcoded here).
+# The provider calls compiled_workflow directly — no HTTP server needed.
+#
+# Run:
+#   cd banking-ai-orchestration/
+#   npx promptfoo@latest eval --config evals/promptfooconfig.yaml
+#   npx promptfoo@latest view
+# ─────────────────────────────────────────────────────────────────────────────
+
+description: "Banking AI Loan Inquiry Orchestration — Full Pipeline Eval"
+
+# ── Provider ──────────────────────────────────────────────────────────────────
+# Calls compiled_workflow directly via a Python script provider.
+# No running API server is required.
+providers:
+  - id: "python:graph_provider.py"
+    label: "banking-ai-graph"
+
+# ── Test dataset ──────────────────────────────────────────────────────────────
+# All 35 test cases are loaded from eval_dataset_v2.json.
+# promptfoo reads the file and expands vars for each case automatically.
+tests: "eval_dataset_v2_promptfoo.json"
+
+# ── Default options ───────────────────────────────────────────────────────────
+defaultTest:
+  options:
+    timeout: 30000    # 30s — graph calls Groq, allow headroom
